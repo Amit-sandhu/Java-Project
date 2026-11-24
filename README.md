@@ -190,43 +190,6 @@ BigDecimal rupees = BigDecimal.valueOf(pricePaise).movePointLeft(2); // 1245.50
 | **High / Low Price** | `max/min pricePaise` |
 | **Quantity by Price** | `Map<pricePaise, totalQty>` (TreeMap) |
 
----
-
-## ⚙️ Workflow
-
-```mermaid
-flowchart TD
-    A[Start Main] --> B[DatabaseManager.initialize]
-    B --> C[Create tables if not exist]
-    C --> D[Load open orders from MySQL]
-    D --> E[ExchangeService starts matching thread]
-    E --> F[AuthenticationService ready]
-    F --> G[TerminalMenu.start]
-    G --> H{User Action}
-    H -->|1. Register| I[Create user in DB]
-    H -->|2. Login| J[Validate credentials]
-    H -->|3. Place Order| K[ExchangeService.placeOrder]
-    K --> L[OrderBook.add / match]
-    L --> M[Save order to MySQL]
-    L --> N[Save trade to MySQL]
-    H -->|4. Cancel Order| O[OrderBook.cancel]
-    O --> P[Update MySQL]
-    H -->|5. View Orders| Q[Query MySQL]
-    H -->|6. View Trades| R[Query MySQL]
-    H -->|7. Import Orders CSV| S[CsvService.importOrders]
-    H -->|8. Export Trades CSV| T[CsvService.exportTrades]
-    H -->|9. Analytics| U[TradeAnalytics.generateReport]
-    H -->|10. Concurrent CSV + Analytics| V[ConcurrentTradeProcessor.process]
-    V --> W[Producer → Queue → Consumer (CSV)]
-    V --> X[Analytics Task (Callable)]
-    W --> Y[Save to data/concurrent_trades.csv]
-    X --> Z[Return TradeAnalyticsReport]
-    H -->|12. Logout| AA[Return to login]
-    H -->|11. Exit| AB[Shutdown executor, close DB]
-```
-
----
-
 ## 🚀 Commands to Compile & Run
 
 ### Linux / macOS
