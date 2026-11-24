@@ -1,4 +1,4 @@
-# MatchBook — Limit Order Book Simulator
+# MatchBook - Limit Order Book Simulator
 
 A Java-based **Limit Order Book (LOB)** simulator that mimics a real stock exchange matching engine. Built with core Java (no frameworks), it demonstrates order matching, persistence, concurrency, and trade analytics — all running in a single terminal application.
 
