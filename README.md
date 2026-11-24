@@ -1,6 +1,6 @@
 # MatchBook - Limit Order Book Simulator
 
-A Java-based **Limit Order Book (LOB)** simulator that mimics a real stock exchange matching engine. Built with core Java (no frameworks), it demonstrates order matching, persistence, concurrency, and trade analytics — all running in a single terminal application.
+A Java-based **Limit Order Book (LOB)** simulator that mimics a real stock exchange matching engine. Built with core Java (no frameworks), it demonstrates order matching, persistence, concurrency, and trade analytics - all running in a single terminal application.
 
 ---
 
@@ -329,8 +329,6 @@ TRD-a1b2c3d4,ORD-xyz789,ORD-abc123,RELIANCE,124550,50,1700000000000
 
 ## 📚 Further Reading
 
-- **Original Integration Docs**: [`README_INTEGRATION.md`](README_INTEGRATION.md)
-- **Change Log**: [`INTEGRATION_CHANGELOG.md`](INTEGRATION_CHANGELOG.md)
 - **Order Book Algorithm**: Price-time priority matching (standard exchange model)
 - **Concurrency**: Java `ExecutorService`, `Future`, `wait/notifyAll` patterns
 - **Financial Precision**: Always use integer paise or `BigDecimal` — never `float`/`double`
